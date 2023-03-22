@@ -1,6 +1,8 @@
 import Head from 'next/head'
 import Image from 'next/image'
+import Layout from '@/conponents/layout'
 import { Inter } from 'next/font/google'
+
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -14,7 +16,11 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={inter.className}>
-       <h1>The Gateway Project!</h1>
+        <Layout>
+          <a href="/hello-world" className='underline'>Hello world</a> <br />
+          <a href="/coding-hello-world" className='underline'>Coding Hello World: read & learn</a> <br />
+          <a href="/code" className='underline'>Code</a>
+        </Layout>
       </main>
     </>
   )
