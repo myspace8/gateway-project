@@ -1,4 +1,3 @@
-import Alert from './header'
 import Footer from './footer'
 import Header from './header'
 
