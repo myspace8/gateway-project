@@ -1,6 +1,7 @@
 import { useState, useRef } from 'react'
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
-import { darcula } from 'react-syntax-highlighter/dist/esm/styles/prism';
+// Enabling the code below causes some error - [still exploring]
+// import { darcula } from 'react-syntax-highlighter/dist/esm/styles/prism';
 
 
 interface CodeSnippetprops {
@@ -21,6 +22,7 @@ const CodeSnip: React.FC<CodeSnippetprops> = ({code}) => {
   }
   const onCopy = () => {
     setCopied(true)
+    // I think I'm having typeScript problem here. But code still works
     navigator.clipboard.writeText(textInput.current.textContent)
     setTimeout(() => {
       setCopied(false)
@@ -71,7 +73,9 @@ const CodeSnip: React.FC<CodeSnippetprops> = ({code}) => {
       )}
 
       {/* <pre>{props.children}</pre> */}
-      <SyntaxHighlighter language="javascript" style={darcula}>
+      <SyntaxHighlighter language="javascript" 
+      // style={darcula}
+      >
         {code}
       </SyntaxHighlighter>
     </div>
