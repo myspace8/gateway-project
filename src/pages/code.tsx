@@ -1,4 +1,7 @@
+// import CodeSnip from "@/conponents/code-snippet"
 import Game from "@/conponents/game"
+import CodeSnip from "@/conponents/pre"
+
 
 export default function Code() {
     return (
@@ -25,6 +28,19 @@ export default function Code() {
         </div>
         <div className="relative top-16">
           <div>
+            <CodeSnip code={`
+let randomNumber = Math.floor(Math.random() * 100) + 1;
+
+const guesses = document.querySelector('.guesses');
+const lastResult = document.querySelector('.lastResult');
+const lowOrHi = document.querySelector('.lowOrHi');
+
+const guessSubmit = document.querySelector('.guessSubmit');
+const guessField = document.querySelector('.guessField');
+
+let guessCount = 1;
+let resetButton;
+            `} />
             <p>From the previous page, you learned something about the programming and what you can do with it, we are going to give you an idea of what the process of creating simple program is like using a programming language called JavaScript. We will guide you through a practical tutorial to build up a simple game we call "Guess the number".</p>
             {/* ----- */}
             <p>We want to set really clear expectations here: You won't be expected to learn JavaScript by the end of this article, or even understand all the code we are asking you to write. Instead, we want to give you an idea of how programming or coding feels like. In other words, you don't have to understand it all immediately!</p>
@@ -40,6 +56,18 @@ export default function Code() {
               <Game />
             </div>
             {/* ----- */}
+            <CodeSnip code={
+              `
+function setGameOver() {
+  guessField.disabled = true;
+  guessSubmit.disabled = true;
+  resetButton = document.createElement('button');
+  resetButton.textContent = 'Start new game';
+  document.body.append(resetButton);
+  resetButton.addEventListener('click', resetGame);
+}   
+              `
+              } />
             <p>Now, let's imagine your boss has given you the following brief for creating this game:</p>
             <div className="my-3">
               <em>I want you to create a simple guess the number type game. It should choose a random number between 1 and 100, then challenge the player to guess the number in 10 turns. After each turn, the player should be told if they are right or wrong, and if they are wrong, whether the guess was too low or too high. It should also tell the player what numbers they previously guessed. The game will end once the player guesses correctly, or once they run out of turns. When the game ends, the player should be given an option to start playing again.</em>
